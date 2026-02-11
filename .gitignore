@@ -1,0 +1,79 @@
+# Environment & Secrets
+.env
+.env.local
+.env.production
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+data/analytics/
+*.db
+*.csv
+
+# Diagnostic & Debug scripts (maxfiy tokenlar bor!)
+check_*.py
+debug_*.py
+diagnose_*.py
+fetch_*.py
+fix_*.py
+get_*.py
+print_*.py
+process_*.py
+subscribe_*.py
+sync_*.py
+test_*.py
+full_debug.py
+create_env.py
+
+# Output files
+*_results.txt
+*_output.txt
+diagnose_output.txt
+models.txt

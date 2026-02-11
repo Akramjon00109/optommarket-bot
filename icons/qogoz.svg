@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#3498DB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Toilet paper / paper roll icon -->
+  <ellipse cx="32" cy="16" rx="18" ry="8"/>
+  <path d="M14 16v28c0 4.4 8 8 18 8s18-3.6 18-8V16"/>
+  <ellipse cx="32" cy="44" rx="18" ry="8"/>
+  <!-- Inner circle -->
+  <ellipse cx="32" cy="16" rx="6" ry="3"/>
+  <path d="M26 16v28"/>
+  <path d="M38 16v28"/>
+</svg>

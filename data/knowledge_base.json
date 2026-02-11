@@ -1,0 +1,54 @@
+{
+  "company_info": {
+    "name": "Optom Market",
+    "description": "Optom va chakana savdo do'koni. Sifatli mahsulotlar arzon narxlarda.",
+    "delivery": "Toshkent shahri bo'ylab yetkazib berish mavjud. Viloyatlarga pochta orqali jo'natamiz.",
+    "payment": "Naqd pul, Uzcard, Humo kartalari, Click, Payme va Paynet. Paynet orqali to'lov havolasi: https://app.paynet.uz/?m=49156&i=4805742d-d76c-4b39-8c02-8ddf1c450f33&branchId=&actTypeId=",
+    "working_hours": "Dushanba-Juma: 09:00 - 19:00, Shanba-Yakshanba: 10:00 - 17:00",
+    "phone": "+998 97 477 12 29",
+    "address": "Toshkent shahri, O'rikzor bozori, 2-108 do'kon",
+    "telegram": "@optom_bazar",
+    "instagram": "@optom_bazar",
+    "website": "https://optommarket.uz",
+    "paynet_link": "https://app.paynet.uz/?m=49156&i=4805742d-d76c-4b39-8c02-8ddf1c450f33&branchId=&actTypeId="
+  },
+  "tone_of_voice": "Professional, do'stona va yordamga tayyor sotuvchi konsultant. O'zbek tilida sodda va tushunarli muloqot. Foydalanuvchiga hurmat bilan munosabatda bo'lish. Savolarga qisqa va aniq javob berish. To'lov haqida so'ralganda Paynet havolasini taqdim etish.",
+  "greeting": "Assalomu alaykum! Optom Market botiga xush kelibsiz. Sizga qanday yordam bera olaman?",
+  "capabilities": [
+    "Mahsulotlarni qidirish va tavsiya qilish",
+    "Narxlar va mavjudlik haqida ma'lumot berish",
+    "Buyurtma holatini tekshirish",
+    "Yetkazib berish va to'lov haqida ma'lumot berish",
+    "Tavsiyalar va maslahatlar berish",
+    "Paynet to'lov havolasini taqdim etish"
+  ],
+  "categories": [
+    "Kiyimlar (Odejda)",
+    "Elektronika",
+    "Oziq-ovqat",
+    "Eshiklar",
+    "Boshqalar"
+  ],
+  "faq": [
+    {
+      "question": "Yetkazib berish qancha turadi?",
+      "answer": "Toshkent bo'ylab yetkazib berish narxi buyurtma summasiga qarab belgilanadi. Batafsil ma'lumot uchun operator bilan bog'laning: +998 97 477 12 29"
+    },
+    {
+      "question": "Qanday to'lash mumkin?",
+      "answer": "Naqd pul, Uzcard, Humo, Click, Payme va Paynet orqali. Paynet havolasi: https://app.paynet.uz/?m=49156&i=4805742d-d76c-4b39-8c02-8ddf1c450f33&branchId=&actTypeId="
+    },
+    {
+      "question": "Qaytarish mumkinmi?",
+      "answer": "Ha, 14 kun ichida sifat muammosi bo'lsa qaytarish mumkin. Mahsulot ishlatilmagan va original qadoqda bo'lishi kerak."
+    },
+    {
+      "question": "Do'kon qayerda joylashgan?",
+      "answer": "Toshkent shahri, O'rikzor bozori, 2-108 do'kon. Ish vaqti: Dush-Jum 09:00-19:00, Shan-Yak 10:00-17:00"
+    },
+    {
+      "question": "Optom narxlar bormi?",
+      "answer": "Ha, optom xaridlar uchun maxsus narxlar mavjud. Batafsil ma'lumot uchun operator bilan bog'laning."
+    }
+  ]
+}

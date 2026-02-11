@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - OptomMarket Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <h1>🛒 OptomMarket Admin</h1>
+        </div>
+        <div class="navbar-menu">
+            <a href="{{ url_for('logout') }}" class="btn btn-outline">Chiqish</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="dashboard-grid">
+            <!-- Company Info Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>🏢 Kompaniya ma'lumotlari</h2>
+                </div>
+                <div class="card-body">
+                    <form id="companyForm">
+                        <div class="form-group">
+                            <label for="companyName">Nomi</label>
+                            <input type="text" id="companyName" name="name"
+                                value="{{ knowledge_base.company_info.name if knowledge_base.company_info else '' }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="companyDesc">Tavsif</label>
+                            <textarea id="companyDesc" name="description"
+                                rows="2">{{ knowledge_base.company_info.description if knowledge_base.company_info else '' }}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="delivery">Yetkazib berish</label>
+                            <textarea id="delivery" name="delivery"
+                                rows="2">{{ knowledge_base.company_info.delivery if knowledge_base.company_info else '' }}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="payment">To'lov usullari</label>
+                            <input type="text" id="payment" name="payment"
+                                value="{{ knowledge_base.company_info.payment if knowledge_base.company_info else '' }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="workingHours">Ish vaqti</label>
+                            <input type="text" id="workingHours" name="working_hours"
+                                value="{{ knowledge_base.company_info.working_hours if knowledge_base.company_info else '' }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="text" id="phone" name="phone"
+                                value="{{ knowledge_base.company_info.phone if knowledge_base.company_info else '' }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Manzil</label>
+                            <input type="text" id="address" name="address"
+                                value="{{ knowledge_base.company_info.address if knowledge_base.company_info else '' }}">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Saqlash</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Tone of Voice Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>💬 Muloqot uslubi</h2>
+                </div>
+                <div class="card-body">
+                    <form id="toneForm">
+                        <div class="form-group">
+                            <label for="toneOfVoice">AI muloqot uslubi</label>
+                            <textarea id="toneOfVoice" name="tone_of_voice"
+                                rows="6">{{ knowledge_base.tone_of_voice if knowledge_base else '' }}</textarea>
+                            <small>Bu matn AI assistentning javob berish uslubini belgilaydi.</small>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Saqlash</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Quick Stats Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>📊 Holat</h2>
+                </div>
+                <div class="card-body">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-value" id="botStatus">✅</span>
+                            <span class="stat-label">Bot holati</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="dbStatus">✅</span>
+                            <span class="stat-label">DB ulanish</span>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <p><strong>Bilimlar bazasi:</strong></p>
+                        <code>data/knowledge_base.json</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script>
+        // Toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast toast-${type}`;
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Company form submit
+        document.getElementById('companyForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('/api/company-info', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                showToast(result.message, result.success ? 'success' : 'error');
+            } catch (error) {
+                showToast('Xatolik: ' + error.message, 'error');
+            }
+        });
+
+        // Tone form submit
+        document.getElementById('toneForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('/api/tone', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                showToast(result.message, result.success ? 'success' : 'error');
+            } catch (error) {
+                showToast('Xatolik: ' + error.message, 'error');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    container_name: optommarket-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    depends_on:
+      - admin
+    command: python -m bot.main
+
+  admin:
+    build: .
+    container_name: optommarket-admin
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data
+    command: python -m admin.app
+
+networks:
+  default:
+    name: optommarket-network

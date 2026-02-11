@@ -1,0 +1,50 @@
+# Render.com deployment configuration
+# https://render.com/docs/blueprint-spec
+#
+# XAVFSIZLIK: Barcha maxfiy kalitlar Render Dashboard'da qo'lda kiritiladi
+# sync: false = Render Dashboard'dan o'qiladi, GitHub'ga yozilmaydi
+
+services:
+  - type: web
+    name: optommarket-bot
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: MOGUTA_URL
+        sync: false
+      - key: ADMIN_IDS
+        sync: false
+      # Instagram & Meta Integration
+      - key: INSTAGRAM_PAGE_ACCESS_TOKEN
+        sync: false
+      - key: INSTAGRAM_PAGE_ID
+        sync: false
+      - key: META_VERIFY_TOKEN
+        sync: false
+      - key: META_APP_ID
+        sync: false
+      - key: META_APP_SECRET
+        sync: false
+      - key: META_ACCESS_TOKEN
+        sync: false
+      - key: META_CATALOG_ID
+        sync: false
+      - key: META_PIXEL_ID
+        sync: false
+      - key: PORT
+        value: "10000"
